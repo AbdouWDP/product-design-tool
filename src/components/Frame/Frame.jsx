@@ -33,7 +33,7 @@ function Quote({ text }) {
 
   return (
     <p
-      className="quote absolute top-20 left-1/2 -translate-x-1/2 font-semibold"
+      className="quote absolute top-20 left-1/2 -translate-x-1/2 font-semibold touch-none"
       ref={quoteRef}
     >
       {text}
@@ -44,7 +44,7 @@ function Quote({ text }) {
 function Frame() {
   return (
     <section id="frame" className="w-full h-full">
-      <div className="w-fit h-fit m-auto relative">
+      <div className="w-fit h-fit m-auto relative overflow-hidden">
         <img
           src={goldFramePortrait}
           alt=""
