@@ -12,7 +12,7 @@ function Quote({ text }) {
 
   useEffect(() => {
     const position = { x: 0, y: 0 };
-    interact(`#${r}`).draggable({
+    interact(quoteRef.current).draggable({
       listeners: {
         move(event) {
           position.x += event.dx;
@@ -21,6 +21,13 @@ function Quote({ text }) {
           event.target.style.transform = `translate(${position.x}px, ${position.y}px)`;
         },
       },
+      inertia: true,
+      modifiers: [
+        interact.modifiers.restrictRect({
+          restriction: "parent",
+          endOnly: true,
+        }),
+      ],
     });
   }, []);
 
@@ -37,7 +44,7 @@ function Quote({ text }) {
 function Frame() {
   return (
     <section id="frame" className="w-full h-full">
-      <div className="w-fit h-full m-auto relative">
+      <div className="w-fit h-fit m-auto relative">
         <img
           src={goldFramePortrait}
           alt=""
