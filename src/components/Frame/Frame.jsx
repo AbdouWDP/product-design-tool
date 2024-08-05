@@ -45,12 +45,12 @@ function Frame() {
   return (
     <section
       id="frame"
-      className="w-full h-full overflow-hidden"
-      style={{ height: "90vh" }}
+      className="w-full overflow-hidden"
+      style={{ height: "90vh", maxHeight: "fit-content" }}
     >
-      <div className="w-fit h-full m-auto relative overflow-hidden">
+      <div className="w-full h-full m-auto bg-red-600 relative overflow-hidden">
         <img
-          src={blackFramePortrait}
+          src={goldFramePortrait}
           alt=""
           className="w-full h-full object-contain max-h-full"
         />
