@@ -24,12 +24,14 @@ function Quote({ text, quotes, setQuotes }) {
     });
   }, []);
 
+  console.log(quotes);
+
   return (
     <p
       contentEditable
       className="quote absolute top-20 left-1/2 -translate-x-1/2 font-semibold touch-none select-none text-lg text-center whitespace-nowrap"
       ref={quoteRef}
-      onDoubleClick={() => setQuotes([...quotes, text])}
+      onDoubleClick={(e) => setQuotes([...quotes, e.target.textContent])}
     >
       {text}
     </p>
