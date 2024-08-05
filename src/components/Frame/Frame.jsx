@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import blackFrameLandscape from "../../assets/frames/frame black landscape.png";
 import blackFramePortrait from "../../assets/frames/frame black portrait.png";
 import whiteFrameLandscape from "../../assets/frames/frame white landscape.png";
@@ -8,9 +8,10 @@ import goldFramePortrait from "../../assets/frames/frame gold portrait.png";
 import interact from "interactjs";
 
 function Quote({ text }) {
-  const position = { x: 0, y: 0 };
-  let r = (Math.random() + 1).toString(36).substring(7);
+  const quoteRef = useRef(null);
+
   useEffect(() => {
+    const position = { x: 0, y: 0 };
     interact(`#${r}`).draggable({
       listeners: {
         move(event) {
@@ -22,10 +23,11 @@ function Quote({ text }) {
       },
     });
   }, []);
+
   return (
     <p
       className="quote absolute top-20 left-1/2 -translate-x-1/2 font-semibold"
-      id={r}
+      ref={quoteRef}
     >
       {text}
     </p>
