@@ -43,10 +43,14 @@ function Quote({ text }) {
 
 function Frame() {
   return (
-    <section id="frame" className="w-full h-full">
-      <div className="w-fit h-fit m-auto relative overflow-hidden">
+    <section
+      id="frame"
+      className="w-full h-full overflow-hidden"
+      style={{ height: "90vh" }}
+    >
+      <div className="w-fit h-full m-auto relative overflow-hidden">
         <img
-          src={goldFramePortrait}
+          src={blackFramePortrait}
           alt=""
           className="w-full h-full object-contain max-h-full"
         />

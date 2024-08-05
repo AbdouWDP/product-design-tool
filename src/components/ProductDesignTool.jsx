@@ -2,8 +2,8 @@ import Frame from "./Frame/Frame";
 
 function ProductDesignTool() {
   return (
-    <section className="product-design-tool w-screen h-screen max-lg:h-svh">
-      <div className="container w-fit m-auto" style={{ height: "90vh" }}>
+    <section className="product-design-tool w-screen">
+      <div className="container w-fit m-auto">
         <Frame />
         <div
           className="actions-buttons w-full flex justify-between items-center"
@@ -15,7 +15,7 @@ function ProductDesignTool() {
             </button>
           </div>
           <div className="*checkout-button h-14" style={{ width: "48%" }}>
-            <button className="w-full h-full rounded-md bg-green-500 hover:bg-green-600 text-white font-semibold">
+            <button className="w-full h-full rounded-md bg-green-500 hover:bg-green-500 text-white font-semibold">
               تأكيد الطلبية
             </button>
           </div>
