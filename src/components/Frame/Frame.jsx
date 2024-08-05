@@ -45,8 +45,8 @@ function Frame() {
   return (
     <section
       id="frame"
-      className="w-full overflow-hidden"
-      style={{ height: "90vh", maxHeight: "fit-content" }}
+      className="w-full h-fit overflow-hidden"
+      style={{ maxheight: "90vh" }}
     >
       <div className="w-full h-full m-auto bg-red-600 relative overflow-hidden">
         <img
