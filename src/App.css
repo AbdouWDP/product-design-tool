@@ -11,4 +11,7 @@
   .product-design-tool {
     width: 95% !important;
   }
+  #frame {
+    height: fit-content !important;
+  }
 }

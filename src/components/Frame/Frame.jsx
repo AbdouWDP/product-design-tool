@@ -45,14 +45,14 @@ function Frame() {
   return (
     <section
       id="frame"
-      className="w-full h-fit overflow-hidden"
-      style={{ maxheight: "90vh" }}
+      className="w-full overflow-hidden"
+      style={{ height: "90vh" }}
     >
-      <div className="w-full h-full m-auto bg-red-600 relative overflow-hidden">
+      <div className="w-full h-full max-md:h-fit m-auto relative">
         <img
           src={goldFramePortrait}
           alt=""
-          className="w-full h-full object-contain max-h-full"
+          className="w-full h-full object-contain"
         />
         <Quote text="TEST1" />
       </div>
