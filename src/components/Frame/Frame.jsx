@@ -9,9 +9,8 @@ import interact from "interactjs";
 
 function Quote({ text }) {
   const quoteRef = useRef(null);
-
+  const position = { x: 0, y: 0 };
   useEffect(() => {
-    const position = { x: 0, y: 0 };
     interact(quoteRef.current).draggable({
       listeners: {
         move(event) {
@@ -33,7 +32,8 @@ function Quote({ text }) {
 
   return (
     <p
-      className="quote absolute top-20 left-1/2 -translate-x-1/2 font-semibold touch-none"
+      contentEditable
+      className="quote absolute top-20 left-1/2 -translate-x-1/2 font-semibold touch-none select-none text-lg text-center whitespace-nowrap"
       ref={quoteRef}
     >
       {text}
@@ -55,7 +55,6 @@ function Frame() {
           className="w-full h-full object-contain max-h-full"
         />
         <Quote text="TEST1" />
-        <Quote text="TEST2" />
       </div>
     </section>
   );
