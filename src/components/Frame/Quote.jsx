@@ -24,12 +24,6 @@ function Quote({ text, quotes, setQuotes }) {
     });
   }, []);
 
-  useEffect(() => {
-    quoteRef.current.addEventListener("mouseup", (event) => {
-      alert("Hello World");
-    });
-  }, []);
-
   return (
     <p
       contentEditable
