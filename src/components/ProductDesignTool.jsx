@@ -3,7 +3,7 @@ import Frame from "./Frame/Frame";
 
 function ProductDesignTool() {
   return (
-    <section className="product-design-tool w-screen">
+    <section className="product-design-tool w-screen max-md:m-auto">
       <div className="container w-fit h-fit m-auto">
         <Frame />
         <ActionsButtons />
