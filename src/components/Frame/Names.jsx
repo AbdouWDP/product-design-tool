@@ -1,11 +1,11 @@
 import interact from "interactjs";
 import { useEffect, useRef } from "react";
 
-function Quote({ text, quotes, setQuotes }) {
-  const quoteRef = useRef(null);
+function Names({ name }) {
+  const nameRef = useRef(null);
   const position = { x: 0, y: 0 };
   useEffect(() => {
-    interact(quoteRef.current).draggable({
+    interact(nameRef.current).draggable({
       listeners: {
         move(event) {
           position.x += event.dx;
@@ -27,13 +27,12 @@ function Quote({ text, quotes, setQuotes }) {
   return (
     <p
       contentEditable
-      className="quote absolute top-20 left-1/2 -translate-x-1/2 font-semibold touch-none select-none text-lg text-center whitespace-nowrap"
-      ref={quoteRef}
-      onDoubleClick={(e) => setQuotes([...quotes, e.target.textContent])}
+      className="name absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 font-semibold touch-none select-none text-lg text-center whitespace-nowrap"
+      ref={nameRef}
     >
-      {text}
+      {name}
     </p>
   );
 }
 
-export default Quote;
+export default Names;

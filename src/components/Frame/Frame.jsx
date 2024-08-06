@@ -5,11 +5,10 @@ import whiteFramePortrait from "../../assets/frames/frame white portrait.png";
 import goldFrameLandscape from "../../assets/frames/frame gold landscape.png";
 import goldFramePortrait from "../../assets/frames/frame gold portrait.png";
 import Quote from "./Quote";
-import { useState } from "react";
+import Names from "./Names";
+import Dates from "./Dates";
 
-function Frame() {
-  const [quotes, setQuotes] = useState(["و خلقناكم أزواجا"]);
-
+function Frame({ quotes, setQuotes, names, icons, setIcons, dates, setDates }) {
   return (
     <section
       id="frame"
@@ -27,6 +26,18 @@ function Frame() {
           quotes.map((quote) => (
             <Quote text={quote} quotes={quotes} setQuotes={setQuotes} />
           ))}
+        {names.length > 0 && names.map((name) => <Names name={name} />)}
+        {dates.length > 0 ? (
+          dates.map((date) => (
+            <Dates date={date} dates={dates} setDates={setDates} />
+          ))
+        ) : (
+          <Dates
+            date={new Date().toLocaleDateString()}
+            dates={dates}
+            setDates={setDates}
+          />
+        )}
       </div>
     </section>
   );
