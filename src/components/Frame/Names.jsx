@@ -3,8 +3,9 @@ import { useEffect, useRef } from "react";
 
 function Names({ name }) {
   const nameRef = useRef(null);
-  const position = { x: 0, y: 0 };
+
   useEffect(() => {
+    const position = { x: 0, y: 0 };
     interact(nameRef.current).draggable({
       listeners: {
         move(event) {

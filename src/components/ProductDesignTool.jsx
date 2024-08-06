@@ -19,7 +19,13 @@ function ProductDesignTool() {
             style={{ background: "rgba(0,0,0,0.9)" }}
             onClick={() => setIsEdit(null)}
           ></div>
-          <FrameEditForm setIsEdit={setIsEdit} />
+          <FrameEditForm
+            setIsEdit={setIsEdit}
+            setQuotes={setQuotes}
+            setNames={setNames}
+            setIcons={setIcons}
+            setDates={setDates}
+          />
         </>
       )}
       <section className="product-design-tool w-screen max-md:m-auto">

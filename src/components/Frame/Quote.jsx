@@ -29,7 +29,9 @@ function Quote({ text, quotes, setQuotes }) {
       contentEditable
       className="quote absolute top-20 left-1/2 -translate-x-1/2 font-semibold touch-none select-none text-lg text-center whitespace-nowrap"
       ref={quoteRef}
-      onDoubleClick={(e) => setQuotes([...quotes, e.target.textContent])}
+      onDoubleClick={(e) =>
+        setQuotes((quotes) => [...quotes, e.target.textContent])
+      }
     >
       {text}
     </p>
