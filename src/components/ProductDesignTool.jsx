@@ -9,6 +9,7 @@ function ProductDesignTool() {
   const [names, setNames] = useState(["اسم الذكر", "اسم الأنثى"]);
   const [icons, setIcons] = useState(["flower"]);
   const [dates, setDates] = useState([]);
+  const [isPortrait, setIsPortrait] = useState(true);
 
   return (
     <>
@@ -25,6 +26,7 @@ function ProductDesignTool() {
             setNames={setNames}
             setIcons={setIcons}
             setDates={setDates}
+            setIsPortrait={setIsPortrait}
           />
         </>
       )}
@@ -39,6 +41,7 @@ function ProductDesignTool() {
             setIcons={setIcons}
             dates={dates}
             setDates={setDates}
+            isPortrait={isPortrait}
           />
           <ActionsButtons setIsEdit={setIsEdit} />
         </div>

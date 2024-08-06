@@ -7,16 +7,25 @@ import goldFramePortrait from "../../assets/frames/frame gold portrait.png";
 import Quote from "./Quote";
 import Names from "./Names";
 import Dates from "./Dates";
-import { useEffect } from "react";
-import interact from "interactjs";
+import React from "react";
 
-function Frame({ quotes, setQuotes, names, icons, setIcons, dates, setDates }) {
+function Frame({
+  quotes,
+  setQuotes,
+  names,
+  icons,
+  setIcons,
+  dates,
+  setDates,
+  isPortrait,
+}) {
   function adjustText() {
-    const element = document.querySelector(".element");
+    const element = document.querySelector(".resizable");
     const width = element.offsetWidth;
     const height = element.offsetHeight;
-    const newSize = Math.min(width, height) / 10;
-    element.style.fontSize = `${newSize}px`;
+    const result = width / height;
+    const newSize = Math.min(width, height);
+    element.style.fontSize = `${newSize / result}px`;
   }
 
   return (
@@ -27,15 +36,13 @@ function Frame({ quotes, setQuotes, names, icons, setIcons, dates, setDates }) {
     >
       <div className="w-full h-full max-md:h-fit m-auto relative">
         <img
-          src={blackFrameLandscape}
+          src={isPortrait ? blackFramePortrait : blackFrameLandscape}
           alt=""
           className="w-full h-full object-contain"
           draggable="false"
         />
         {quotes.length > 0 &&
-          quotes.map((quote) => (
-            <Quote text={quote} setQuotes={setQuotes} />
-          ))}
+          quotes.map((quote) => <Quote text={quote} setQuotes={setQuotes} />)}
         {names.length > 0 && names.map((name) => <Names name={name} />)}
         {dates.length > 0 ? (
           dates.map((date) => <Dates date={date} setDates={setDates} />)
@@ -47,4 +54,4 @@ function Frame({ quotes, setQuotes, names, icons, setIcons, dates, setDates }) {
   );
 }
 
-export default Frame;
+export default React.memo(Frame);

@@ -26,6 +26,7 @@ function Dates({ date, setDates }) {
 
   return (
     <p
+      contentEditable
       suppressContentEditableWarning
       className="name absolute bottom-20 left-1/2 -translate-x-1/2 font-semibold touch-none select-none text-lg text-center whitespace-nowrap"
       ref={dateRef}

@@ -1,3 +1,5 @@
+import React from "react";
+
 function ActionsButtons({ setIsEdit }) {
   return (
     <section
@@ -21,4 +23,4 @@ function ActionsButtons({ setIsEdit }) {
   );
 }
 
-export default ActionsButtons;
+export default React.memo(ActionsButtons);

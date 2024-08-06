@@ -1,8 +1,16 @@
+import React, { useEffect } from "react";
 import flower from "../../assets/flower.png";
 import infinity from "../../assets/infinity.png";
 import ring from "../../assets/ring.png";
 
-function FrameEditForm({ setIsEdit, setQuotes, setNames, setIcons, setDates }) {
+function FrameEditForm({
+  setIsEdit,
+  setQuotes,
+  setNames,
+  setIcons,
+  setDates,
+  setIsPortrait,
+}) {
   const submitHandler = (e) => {
     e.preventDefault();
     const quote = e.target.quote.value;
@@ -15,6 +23,20 @@ function FrameEditForm({ setIsEdit, setQuotes, setNames, setIcons, setDates }) {
     setIsEdit(null);
   };
 
+  useEffect(() => {
+    const frameShapeButtons = document.querySelectorAll(".frame-shape-button");
+    frameShapeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        frameShapeButtons.forEach((b) => {
+          b.classList.remove("bg-blue-400", "text-white");
+          b.classList.add("border");
+        });
+        button.classList.add("bg-blue-400", "text-white");
+        button.classList.remove("border");
+      });
+    });
+  }, []);
+
   return (
     <div className="edit-frame-form w-1/2 h-fit py-4 rounded-md max-md:w-11/12 max-lg:w-3/4 bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 flex justify-center items-center">
       <form
@@ -22,6 +44,22 @@ function FrameEditForm({ setIsEdit, setQuotes, setNames, setIcons, setDates }) {
         className="flex flex-col gap-2"
         onSubmit={(e) => submitHandler(e)}
       >
+        <div className="frame-shape w-full h-12 flex justify-between font-semibold">
+          <div
+            className="frame-shape-button landscape h-full border border-gray-300 rounded-lg flex justify-center items-center cursor-pointer duration-200"
+            style={{ width: "48%" }}
+            onClick={() => setIsPortrait(false)}
+          >
+            Landscape
+          </div>
+          <div
+            className="frame-shape-button portrait h-full border border-gray-300 rounded-lg flex justify-center items-center cursor-pointer duration-200"
+            style={{ width: "48%" }}
+            onClick={() => setIsPortrait(true)}
+          >
+            Portrait
+          </div>
+        </div>
         <div className="select-quote" dir="rtl">
           <label htmlFor="quote" className="font-semibold">
             اختر عبارة
@@ -91,4 +129,4 @@ function FrameEditForm({ setIsEdit, setQuotes, setNames, setIcons, setDates }) {
   );
 }
 
-export default FrameEditForm;
+export default React.memo(FrameEditForm);
