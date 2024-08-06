@@ -2,6 +2,7 @@ import { useState } from "react";
 import ActionsButtons from "./Frame/ActionsButtons";
 import Frame from "./Frame/Frame";
 import FrameEditForm from "./Frame/FrameEditForm";
+import FrameCheckout from "./Frame/FrameCheckout";
 
 function ProductDesignTool() {
   const [isEdit, setIsEdit] = useState(null);
@@ -13,24 +14,25 @@ function ProductDesignTool() {
 
   return (
     <>
-      {isEdit && (
-        <>
-          <div
-            className="overlay w-screen h-screen absolute top-0 left-0 z-40"
-            style={{ background: "rgba(0,0,0,0.9)" }}
-            onClick={() => setIsEdit(null)}
-          ></div>
-          <FrameEditForm
-            setIsEdit={setIsEdit}
-            setQuotes={setQuotes}
-            setNames={setNames}
-            setIcons={setIcons}
-            setDates={setDates}
-            setIsPortrait={setIsPortrait}
-            isPortrait={isPortrait}
-          />
-        </>
+      {isEdit !== null && (
+        <div
+          className="overlay w-screen h-screen absolute top-0 left-0 z-40"
+          style={{ background: "rgba(0,0,0,0.9)" }}
+          onClick={() => setIsEdit(null)}
+        ></div>
       )}
+      {isEdit && (
+        <FrameEditForm
+          setIsEdit={setIsEdit}
+          setQuotes={setQuotes}
+          setNames={setNames}
+          setIcons={setIcons}
+          setDates={setDates}
+          setIsPortrait={setIsPortrait}
+          isPortrait={isPortrait}
+        />
+      )}
+      {isEdit == false && <FrameCheckout />}
       <section className="product-design-tool w-screen max-md:m-auto">
         <div className="container w-fit h-full m-auto">
           <Frame

@@ -43,6 +43,7 @@ function FrameEditForm({
       <form
         style={{ width: "95%", height: "95%" }}
         className="flex flex-col gap-2"
+        dir="rtl"
         onSubmit={(e) => submitHandler(e)}
       >
         <div className="frame-shape w-full h-12 flex justify-between font-semibold">
@@ -65,7 +66,7 @@ function FrameEditForm({
             عمودي
           </div>
         </div>
-        <div className="select-quote" dir="rtl">
+        <div className="select-quote">
           <label htmlFor="quote" className="font-semibold">
             اختر عبارة
           </label>
@@ -77,7 +78,7 @@ function FrameEditForm({
             <option value="Hello World">Hello World</option>
           </select>
         </div>
-        <div className="names flex flex-col" dir="rtl">
+        <div className="names flex flex-col">
           <label htmlFor="quote" className="font-semibold">
             أضف أسماء
           </label>
@@ -118,7 +119,7 @@ function FrameEditForm({
             onClick={() => setIcons((icons) => [...icons, infinity])}
           />
         </div>
-        <div className="dates w-full" dir="rtl">
+        <div className="dates w-full">
           <label htmlFor="date" className="font-semibold">
             أضف تاريخ
           </label>

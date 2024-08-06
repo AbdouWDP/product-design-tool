@@ -1,10 +1,10 @@
 import blackFrameLandscape from "../../assets/frames/frame black landscape.png";
 import blackFramePortrait from "../../assets/frames/frame black portrait.png";
-import Quote from "./Quote";
-import Names from "./Names";
-import Dates from "./Dates";
+import Quote from "./Frame Content/Quote";
+import Names from "./Frame Content/Names";
+import Dates from "./Frame Content/Dates";
+import Icons from "./Frame Content/Icons";
 import React from "react";
-import Icons from "./Icons";
 
 function Frame({
   quotes,
@@ -16,14 +16,14 @@ function Frame({
   setDates,
   isPortrait,
 }) {
-  function adjustText() {
-    const element = document.querySelector(".resizable");
-    const width = element.offsetWidth;
-    const height = element.offsetHeight;
-    const result = width / height;
-    const newSize = Math.min(width, height);
-    element.style.fontSize = `${newSize / result}px`;
-  }
+  // function adjustText() {
+  //   const element = document.querySelector(".resizable");
+  //   const width = element.offsetWidth;
+  //   const height = element.offsetHeight;
+  //   const result = width / height;
+  //   const newSize = Math.min(width, height);
+  //   element.style.fontSize = `${newSize / result}px`;
+  // }
 
   return (
     <section
