@@ -10,6 +10,7 @@ function FrameEditForm({
   setIcons,
   setDates,
   setIsPortrait,
+  isPortrait,
 }) {
   const submitHandler = (e) => {
     e.preventDefault();
@@ -46,18 +47,22 @@ function FrameEditForm({
       >
         <div className="frame-shape w-full h-12 flex justify-between font-semibold">
           <div
-            className="frame-shape-button landscape h-full border border-gray-300 rounded-lg flex justify-center items-center cursor-pointer duration-200"
+            className={`frame-shape-button landscape h-full ${
+              !isPortrait ? "bg-blue-400 text-white" : "border"
+            } border-gray-300 rounded-lg flex justify-center items-center cursor-pointer duration-200`}
             style={{ width: "48%" }}
             onClick={() => setIsPortrait(false)}
           >
-            Landscape
+            أفقي
           </div>
           <div
-            className="frame-shape-button portrait h-full border border-gray-300 rounded-lg flex justify-center items-center cursor-pointer duration-200"
+            className={`frame-shape-button portrait h-full ${
+              isPortrait ? "bg-blue-400 text-white" : "border"
+            } border-gray-300 rounded-lg flex justify-center items-center cursor-pointer duration-200`}
             style={{ width: "48%" }}
             onClick={() => setIsPortrait(true)}
           >
-            Portrait
+            عمودي
           </div>
         </div>
         <div className="select-quote" dir="rtl">
@@ -96,18 +101,21 @@ function FrameEditForm({
         <div className="icons w-full flex justify-between h-16 cursor-pointer">
           <img
             src={flower}
-            data-type="flower"
+            data-icon="flower"
             className="w-1/3 h-full object-contain active:ring-2 active:ring-blue-400 duration-200"
+            onClick={() => setIcons((icons) => [...icons, flower])}
           />
           <img
             src={ring}
-            data-type="ring"
+            data-icon="ring"
             className="w-1/3 h-full object-contain active:ring-2 active:ring-blue-400 duration-200"
+            onClick={() => setIcons((icons) => [...icons, ring])}
           />
           <img
             src={infinity}
-            data-type="infinity"
+            data-icon="infinity"
             className="w-1/3 h-full object-contain active:ring-2 active:ring-blue-400 duration-200"
+            onClick={() => setIcons((icons) => [...icons, infinity])}
           />
         </div>
         <div className="dates w-full" dir="rtl">

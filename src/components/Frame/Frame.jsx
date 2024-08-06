@@ -1,13 +1,10 @@
 import blackFrameLandscape from "../../assets/frames/frame black landscape.png";
 import blackFramePortrait from "../../assets/frames/frame black portrait.png";
-import whiteFrameLandscape from "../../assets/frames/frame white landscape.png";
-import whiteFramePortrait from "../../assets/frames/frame white portrait.png";
-import goldFrameLandscape from "../../assets/frames/frame gold landscape.png";
-import goldFramePortrait from "../../assets/frames/frame gold portrait.png";
 import Quote from "./Quote";
 import Names from "./Names";
 import Dates from "./Dates";
 import React from "react";
+import Icons from "./Icons";
 
 function Frame({
   quotes,
@@ -44,11 +41,10 @@ function Frame({
         {quotes.length > 0 &&
           quotes.map((quote) => <Quote text={quote} setQuotes={setQuotes} />)}
         {names.length > 0 && names.map((name) => <Names name={name} />)}
-        {dates.length > 0 ? (
-          dates.map((date) => <Dates date={date} setDates={setDates} />)
-        ) : (
-          <Dates date={new Date().toLocaleDateString()} setDates={setDates} />
-        )}
+        {dates.length > 0 &&
+          dates.map((date) => <Dates date={date} setDates={setDates} />)}
+        {icons.length > 0 &&
+          icons.map((icon) => <Icons icon={icon} setIcons={setIcons} />)}
       </div>
     </section>
   );

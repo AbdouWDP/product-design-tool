@@ -6,8 +6,8 @@ import FrameEditForm from "./Frame/FrameEditForm";
 function ProductDesignTool() {
   const [isEdit, setIsEdit] = useState(null);
   const [quotes, setQuotes] = useState([]);
-  const [names, setNames] = useState(["اسم الذكر", "اسم الأنثى"]);
-  const [icons, setIcons] = useState(["flower"]);
+  const [names, setNames] = useState([]);
+  const [icons, setIcons] = useState([]);
   const [dates, setDates] = useState([]);
   const [isPortrait, setIsPortrait] = useState(true);
 
@@ -27,6 +27,7 @@ function ProductDesignTool() {
             setIcons={setIcons}
             setDates={setDates}
             setIsPortrait={setIsPortrait}
+            isPortrait={isPortrait}
           />
         </>
       )}
