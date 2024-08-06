@@ -5,7 +5,7 @@ import FrameEditForm from "./Frame/FrameEditForm";
 
 function ProductDesignTool() {
   const [isEdit, setIsEdit] = useState(null);
-  const [quotes, setQuotes] = useState(["و خلقناكم أزواجا"]);
+  const [quotes, setQuotes] = useState([]);
   const [names, setNames] = useState(["اسم الذكر", "اسم الأنثى"]);
   const [icons, setIcons] = useState(["flower"]);
   const [dates, setDates] = useState([]);

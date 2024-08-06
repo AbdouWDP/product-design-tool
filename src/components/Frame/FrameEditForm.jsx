@@ -29,7 +29,6 @@ function FrameEditForm({ setIsEdit, setQuotes, setNames, setIcons, setDates }) {
           <select
             name="quote"
             className="w-full h-12 bg-white border border-gray-300 rounded-lg px-2"
-            required
           >
             <option value="و خلقناكم أزواجا">و خلقناكم أزواجا</option>
             <option value="Hello World">Hello World</option>
@@ -46,7 +45,6 @@ function FrameEditForm({ setIsEdit, setQuotes, setNames, setIcons, setDates }) {
               placeholder="اسم الذكر"
               className="h-12 bg-white border border-gray-300 rounded-lg px-2 outline-none focus:ring-2 focus:ring-blue-400 duration-200"
               style={{ width: "48%" }}
-              required
             />
             <input
               type="text"
@@ -54,7 +52,6 @@ function FrameEditForm({ setIsEdit, setQuotes, setNames, setIcons, setDates }) {
               placeholder="اسم الأنثى"
               className="h-12 bg-white border border-gray-300 rounded-lg px-2 outline-none focus:ring-2 focus:ring-blue-400 duration-200"
               style={{ width: "48%" }}
-              required
             />
           </div>
         </div>
@@ -83,7 +80,6 @@ function FrameEditForm({ setIsEdit, setQuotes, setNames, setIcons, setDates }) {
             type="date"
             name="date"
             placeholder="التاريخ"
-            required
             className="w-full h-12 bg-white border border-gray-300 rounded-lg px-2 outline-none focus:ring-2 focus:ring-blue-400 duration-200"
           />
         </div>
