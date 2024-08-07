@@ -21,7 +21,8 @@ input[type="number"] {
 }
 
 .delete-content,
-.approve-content {
+.approve-content,
+.duplicate-content {
   animation: delete 0.15s ease-in;
 }
 

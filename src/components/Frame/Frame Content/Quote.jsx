@@ -10,10 +10,8 @@ function Quote({ text, key, quotes, setQuotes }) {
   useEffect(() => {
     interact(quoteRef.current).draggable({
       listeners: {
-        start() {
-          setIsDelete(false);
-        },
         move(event) {
+          setIsDelete(false);
           position.x += event.dx;
           position.y += event.dy;
 
@@ -40,11 +38,17 @@ function Quote({ text, key, quotes, setQuotes }) {
     >
       {isDelete && (
         <>
-          <span
-            className="delete-content w-8 h-8 bg-red-400 text-white flex justify-center items-center absolute -top-8 left-0  rounded-full duration-150 ease-in cursor-pointer"
-            // onClick={() => }
-          >
+          <span className="delete-content w-8 h-8 bg-red-400 text-white flex justify-center items-center absolute -top-8 left-0  rounded-full duration-150 ease-in cursor-pointer">
             <i className="fa-solid fa-trash"></i>
+          </span>
+          <span
+            className="duplicate-content w-8 h-8 bg-blue-400 text-white flex justify-center items-center absolute -top-8 left-1/2 -translate-x-1/2  rounded-full duration-150 ease-in cursor-pointer"
+            onClick={() => {
+              setQuotes((quotes) => [...quotes, text]);
+              setIsDelete(false);
+            }}
+          >
+            <i class="fa-solid fa-clone"></i>
           </span>
           <span
             className="approve-content w-8 h-8 bg-green-400 text-white flex justify-center items-center absolute -top-8 right-0 rounded-full duration-150 ease-in cursor-pointer"
@@ -59,9 +63,6 @@ function Quote({ text, key, quotes, setQuotes }) {
         suppressContentEditableWarning
         key={key}
         className=""
-        onDoubleClick={(e) =>
-          setQuotes((quotes) => [...quotes, e.target.textContent])
-        }
         onClick={() => setIsDelete(true)}
       >
         {text}
