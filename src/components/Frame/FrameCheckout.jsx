@@ -18,7 +18,6 @@ function FrameCheckout({ setIsEdit }) {
           phone: e.target.phone.value,
           wilaya: e.target.wilaya.value,
           commune: e.target.commune.value,
-          color: e.target.color.value,
           dimension: e.target.dimension.value,
           image: dataUrl,
         };
@@ -31,10 +30,12 @@ function FrameCheckout({ setIsEdit }) {
   return (
     <section className="frame-checkout w-screen h-screen max-md:h-dvh absolute top-0 left-0 z-50 flex justify-center items-center">
       <button
-        className="close px-6 py-4 bg-blue-500 text-white absolute top-10 left-10"
+        className="close text-white absolute top-4 right-12 max-md:right-4 text-3xl"
         onClick={() => setIsEdit(null)}
       >
-        Close
+        <span>
+          <i class="fa-solid fa-xmark"></i>
+        </span>
       </button>
       <form
         className="w-1/2 h-fit max-md:w-11/12 maxl-lg:w-3/4 p-4 flex flex-col gap-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-md"
@@ -87,19 +88,6 @@ function FrameCheckout({ setIsEdit }) {
             <option value="el harrach">el harrach</option>
           </select>
         </div>
-        <div className="select-color">
-          <label htmlFor="color" className="font-semibold">
-            لون الاطار
-          </label>
-          <select
-            name="color"
-            className="w-full h-12 bg-white border border-gray-300 rounded-lg px-2 capitalize"
-          >
-            <option value="black">أسود</option>
-            <option value="white">أبيض</option>
-            <option value="gold">ذهبي</option>
-          </select>
-        </div>
         <div className="select-dimension">
           <label htmlFor="dimension" className="font-semibold">
             الأبعاد
@@ -109,7 +97,6 @@ function FrameCheckout({ setIsEdit }) {
             className="w-full h-12 bg-white border border-gray-300 rounded-lg px-2 capitalize"
           >
             <option value="a4">a4</option>
-            <option value="a3">a3</option>
             <option value="25 x 30">25 * 30</option>
             <option value="30 x 40">30 * 40</option>
           </select>

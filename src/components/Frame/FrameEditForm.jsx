@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import flower from "../../assets/flower.png";
 import infinity from "../../assets/infinity.png";
 import ring from "../../assets/ring.png";
@@ -11,6 +11,8 @@ function FrameEditForm({
   setDates,
   setIsPortrait,
   isPortrait,
+  setFrameColor,
+  frameColor,
 }) {
   const submitHandler = (e) => {
     e.preventDefault();
@@ -18,34 +20,21 @@ function FrameEditForm({
     const male_name = e.target.male_name.value;
     const female_name = e.target.female_name.value;
     const date = e.target.date.value;
-
     if (quote) setQuotes((quotes) => [...quotes, quote]);
     if (male_name && female_name) setNames([male_name, female_name]);
     if (date) setDates((dates) => [...dates, date]);
     setIsEdit(null);
   };
 
-  useEffect(() => {
-    const frameShapeButtons = document.querySelectorAll(".frame-shape-button");
-    frameShapeButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        frameShapeButtons.forEach((b) => {
-          b.classList.remove("bg-blue-400", "text-white");
-          b.classList.add("border");
-        });
-        button.classList.add("bg-blue-400", "text-white");
-        button.classList.remove("border");
-      });
-    });
-  }, []);
-
   return (
     <div className="edit-frame-form w-screen h-screen max-md:h-dvh absolute top-0 left-0 z-50 flex justify-center items-center">
       <button
-        className="close px-6 py-4 bg-blue-500 text-white absolute top-10 left-10"
+        className="close text-white absolute top-4 right-12 max-md:right-4 text-3xl"
         onClick={() => setIsEdit(null)}
       >
-        Close
+        <span>
+          <i class="fa-solid fa-xmark"></i>
+        </span>
       </button>
       <form
         className="w-1/2 h-fit max-md:w-11/12 maxl-lg:w-3/4 p-4 flex flex-col gap-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-md"
@@ -70,6 +59,32 @@ function FrameEditForm({
             onClick={() => setIsPortrait(true)}
           >
             عمودي
+          </div>
+        </div>
+        <div className="choose-frame-color w-full h-12 flex font-semibold border border-gray-300 rounded-lg">
+          <div
+            className={`frame-color gold w-1/3 h-full flex justify-center items-center cursor-pointer duration-200 border-gray-300 ${
+              frameColor === "white" ? "bg-blue-400 text-white" : ""
+            }`}
+            onClick={() => setFrameColor("white")}
+          >
+            أبيض
+          </div>
+          <div
+            className={`frame-color gold w-1/3 h-full flex justify-center items-center cursor-pointer duration-200 ${
+              frameColor === "black" ? "bg-blue-400 text-white" : "border-x"
+            }`}
+            onClick={() => setFrameColor("black")}
+          >
+            أسود
+          </div>
+          <div
+            className={`frame-color gold w-1/3 h-full flex justify-center items-center cursor-pointer duration-200 border-gray-300 ${
+              frameColor === "gold" ? "bg-blue-400 text-white" : ""
+            }`}
+            onClick={() => setFrameColor("gold")}
+          >
+            ذهبي
           </div>
         </div>
         <div className="select-quote">

@@ -1,10 +1,14 @@
 import blackFrameLandscape from "../../assets/frames/frame black landscape.png";
 import blackFramePortrait from "../../assets/frames/frame black portrait.png";
+import whiteFrameLandscape from "../../assets/frames/frame white landscape.png";
+import whiteFramePortrait from "../../assets/frames/frame white portrait.png";
+import goldFrameLandscape from "../../assets/frames/frame gold landscape.png";
+import goldFramePortrait from "../../assets/frames/frame gold portrait.png";
 import Quote from "./Frame Content/Quote";
 import Names from "./Frame Content/Names";
 import Dates from "./Frame Content/Dates";
 import Icons from "./Frame Content/Icons";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function Frame({
   quotes,
@@ -15,6 +19,7 @@ function Frame({
   dates,
   setDates,
   isPortrait,
+  frameColor,
 }) {
   // function adjustText() {
   //   const element = document.querySelector(".resizable");
@@ -24,6 +29,25 @@ function Frame({
   //   const newSize = Math.min(width, height);
   //   element.style.fontSize = `${newSize / result}px`;
   // }
+
+  const frame = [
+    { color: "black", isPortrait: true, img: blackFramePortrait },
+    { color: "black", isPortrait: false, img: blackFrameLandscape },
+    { color: "white", isPortrait: true, img: whiteFramePortrait },
+    { color: "white", isPortrait: false, img: whiteFrameLandscape },
+    { color: "gold", isPortrait: true, img: goldFramePortrait },
+    { color: "gold", isPortrait: false, img: goldFrameLandscape },
+  ];
+
+  const [image, setImage] = useState(null);
+
+  useEffect(() => {
+    frame.map((frame) => {
+      if (frame.color === frameColor && frame.isPortrait === isPortrait) {
+        setImage(frame.img);
+      }
+    });
+  }, [isPortrait, frameColor]);
 
   return (
     <section
@@ -36,7 +60,7 @@ function Frame({
         className="w-full h-full max-md:h-fit m-auto relative"
       >
         <img
-          src={isPortrait ? blackFramePortrait : blackFrameLandscape}
+          src={image}
           alt=""
           className="w-full h-full object-contain select-none"
           draggable="false"
