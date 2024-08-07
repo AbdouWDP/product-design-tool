@@ -31,11 +31,14 @@ function Frame({
       className="w-full overflow-hidden"
       style={{ height: "90vh" }}
     >
-      <div className="w-full h-full max-md:h-fit m-auto relative">
+      <div
+        id="frame-container"
+        className="w-full h-full max-md:h-fit m-auto relative"
+      >
         <img
           src={isPortrait ? blackFramePortrait : blackFrameLandscape}
           alt=""
-          className="w-full h-full object-contain"
+          className="w-full h-full object-contain select-none"
           draggable="false"
         />
         {quotes.length > 0 &&

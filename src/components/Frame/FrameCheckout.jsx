@@ -4,13 +4,26 @@ import * as htmlToImage from "html-to-image";
 function FrameCheckout() {
   function submitHandler(e) {
     e.preventDefault();
+
+    const node = document.getElementById("frame-container");
     htmlToImage
-      .toJpeg(document.getElementById("frame"))
-      .then(function (dataUrl) {
-        var link = document.createElement("a");
-        link.download = "my-image-name.jpeg";
-        link.href = dataUrl;
-        link.click();
+      .toPng(node)
+      .then((dataUrl) => {
+        // var link = document.createElement("a");
+        // link.download = "my-image-name.jpeg";
+        // link.href = dataUrl;
+        // link.click();
+        const data = {
+          name: e.target.name.value,
+          phone: e.target.phone.value,
+          wilaya: e.target.wilaya.value,
+          commune: e.target.commune.value,
+          color: e.target.color.value,
+          dimension: e.target.dimension.value,
+          image: dataUrl,
+        };
+        console.log(data);
+        location.href = dataUrl;
       })
       .catch((err) => alert(err.message));
   }
@@ -62,7 +75,7 @@ function FrameCheckout() {
             البلدية
           </label>
           <select
-            name="wilaya"
+            name="commune"
             className="w-full h-12 bg-white border border-gray-300 rounded-lg px-2 capitalize"
           >
             <option value="bab ezzouar">bab ezzouar</option>

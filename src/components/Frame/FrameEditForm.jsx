@@ -18,9 +18,10 @@ function FrameEditForm({
     const male_name = e.target.male_name.value;
     const female_name = e.target.female_name.value;
     const date = e.target.date.value;
-    setQuotes((quotes) => [...quotes, quote]);
-    setNames([male_name, female_name]);
-    setDates((dates) => [...dates, date]);
+
+    if (quote) setQuotes((quotes) => [...quotes, quote]);
+    if (male_name && female_name) setNames([male_name, female_name]);
+    if (date) setDates((dates) => [...dates, date]);
     setIsEdit(null);
   };
 
@@ -74,6 +75,7 @@ function FrameEditForm({
             name="quote"
             className="w-full h-12 bg-white border border-gray-300 rounded-lg px-2"
           >
+            <option value=""></option>
             <option value="و خلقناكم أزواجا">و خلقناكم أزواجا</option>
             <option value="Hello World">Hello World</option>
           </select>
