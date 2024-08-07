@@ -29,10 +29,10 @@ function FrameCheckout() {
   }
 
   return (
-    <section className="frame-checkout w-1/2 h-fit py-4 rounded-md max-md:w-11/12 max-lg:w-3/4 bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 flex justify-center items-center">
+    <section className="frame-checkout w-screen h-screen absolute top-0 left-0 max-md:w-11/12 max-lg:w-3/4 z-50 flex justify-center items-center">
       <form
-        style={{ width: "95%", height: "95%" }}
-        className="flex flex-col gap-2"
+        // style={{ width: "95%", height: "95%" }}
+        className="w-1/2 h-fit p-4 flex flex-col gap-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-md"
         dir="rtl"
         onSubmit={(e) => submitHandler(e)}
       >
