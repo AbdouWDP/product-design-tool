@@ -41,7 +41,7 @@ function Quote({ text, index, quotes, setQuotes }) {
     >
       {isDelete && (
         <>
-          <span
+          <button
             className="delete-content w-8 h-8 bg-red-400 text-white flex justify-center items-center absolute -top-8 left-0  rounded-full duration-150 ease-in cursor-pointer"
             onClick={() => {
               const filter = quotes.filter((quote, i) => {
@@ -53,8 +53,8 @@ function Quote({ text, index, quotes, setQuotes }) {
             }}
           >
             <i className="fa-solid fa-trash"></i>
-          </span>
-          <span
+          </button>
+          <button
             className="duplicate-content w-8 h-8 bg-blue-400 text-white flex justify-center items-center absolute -top-8 left-1/2 -translate-x-1/2  rounded-full duration-150 ease-in cursor-pointer"
             onClick={() => {
               setQuotes((quotes) => [...quotes, text]);
@@ -62,13 +62,13 @@ function Quote({ text, index, quotes, setQuotes }) {
             }}
           >
             <i class="fa-solid fa-clone"></i>
-          </span>
-          <span
+          </button>
+          <button
             className="approve-content w-8 h-8 bg-green-400 text-white flex justify-center items-center absolute -top-8 right-0 rounded-full duration-150 ease-in cursor-pointer"
             onClick={() => setIsDelete(false)}
           >
             <i className="fa-solid fa-check"></i>
-          </span>
+          </button>
         </>
       )}
       <p
