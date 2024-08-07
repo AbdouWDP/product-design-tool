@@ -14,6 +14,7 @@ function Frame({
   quotes,
   setQuotes,
   names,
+  setNames,
   icons,
   setIcons,
   dates,
@@ -21,15 +22,6 @@ function Frame({
   isPortrait,
   frameColor,
 }) {
-  // function adjustText() {
-  //   const element = document.querySelector(".resizable");
-  //   const width = element.offsetWidth;
-  //   const height = element.offsetHeight;
-  //   const result = width / height;
-  //   const newSize = Math.min(width, height);
-  //   element.style.fontSize = `${newSize / result}px`;
-  // }
-
   const frame = [
     { color: "black", isPortrait: true, img: blackFramePortrait },
     { color: "black", isPortrait: false, img: blackFrameLandscape },
@@ -69,16 +61,38 @@ function Frame({
           quotes.map((quote, index) => (
             <Quote
               text={quote}
-              key={index}
+              index={index}
               quotes={quotes}
               setQuotes={setQuotes}
             />
           ))}
-        {names.length > 0 && names.map((name) => <Names name={name} />)}
+        {names.length > 0 &&
+          names.map((name, index) => (
+            <Names
+              name={name}
+              index={index}
+              names={names}
+              setNames={setNames}
+            />
+          ))}
         {dates.length > 0 &&
-          dates.map((date) => <Dates date={date} setDates={setDates} />)}
+          dates.map((date, index) => (
+            <Dates
+              date={date}
+              setDates={setDates}
+              dates={dates}
+              index={index}
+            />
+          ))}
         {icons.length > 0 &&
-          icons.map((icon) => <Icons icon={icon} setIcons={setIcons} />)}
+          icons.map((icon, index) => (
+            <Icons
+              icon={icon}
+              index={index}
+              icons={icons}
+              setIcons={setIcons}
+            />
+          ))}
       </div>
     </section>
   );

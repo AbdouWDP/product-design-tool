@@ -1,15 +1,17 @@
 import interact from "interactjs";
 import { useEffect, useRef, useState } from "react";
 
-function Quote({ text, key, quotes, setQuotes }) {
+function Quote({ text, index, quotes, setQuotes }) {
   const quoteRef = useRef(null);
   const position = { x: 0, y: 0 };
-
   const [isDelete, setIsDelete] = useState(false);
 
   useEffect(() => {
     interact(quoteRef.current).draggable({
       listeners: {
+        start() {
+          setIsDelete(false);
+        },
         move(event) {
           setIsDelete(false);
           position.x += event.dx;
@@ -18,7 +20,7 @@ function Quote({ text, key, quotes, setQuotes }) {
           event.target.style.transform = `translate(${position.x}px, ${position.y}px)`;
         },
         end() {
-          setIsDelete(true);
+          setIsDelete(false);
         },
       },
       inertia: true,
@@ -34,11 +36,22 @@ function Quote({ text, key, quotes, setQuotes }) {
   return (
     <div
       ref={quoteRef}
+      key={index}
       className="quote absolute top-20 left-1/2 -translate-x-1/2 font-semibold touch-none select-none text-lg text-center whitespace-nowrap"
     >
       {isDelete && (
         <>
-          <span className="delete-content w-8 h-8 bg-red-400 text-white flex justify-center items-center absolute -top-8 left-0  rounded-full duration-150 ease-in cursor-pointer">
+          <span
+            className="delete-content w-8 h-8 bg-red-400 text-white flex justify-center items-center absolute -top-8 left-0  rounded-full duration-150 ease-in cursor-pointer"
+            onClick={() => {
+              const filter = quotes.filter((quote, i) => {
+                if (i !== index) {
+                  return quote;
+                }
+              });
+              setQuotes(filter);
+            }}
+          >
             <i className="fa-solid fa-trash"></i>
           </span>
           <span
@@ -61,8 +74,6 @@ function Quote({ text, key, quotes, setQuotes }) {
       <p
         contentEditable
         suppressContentEditableWarning
-        key={key}
-        className=""
         onClick={() => setIsDelete(true)}
       >
         {text}
