@@ -12,6 +12,7 @@ function ProductDesignTool() {
   const [dates, setDates] = useState([]);
   const [isPortrait, setIsPortrait] = useState(true);
   const [frameColor, setFrameColor] = useState("black");
+  const [notification, setNotification] = useState(null);
 
   return (
     <>
@@ -33,6 +34,8 @@ function ProductDesignTool() {
           isPortrait={isPortrait}
           setFrameColor={setFrameColor}
           frameColor={frameColor}
+          setNotification={setNotification}
+          notification={notification}
         />
       )}
       {isEdit == false && <FrameCheckout setIsEdit={setIsEdit} />}
