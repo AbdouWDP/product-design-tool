@@ -1,7 +1,7 @@
 import React from "react";
 import * as htmlToImage from "html-to-image";
 
-function FrameCheckout() {
+function FrameCheckout({ setIsEdit }) {
   function submitHandler(e) {
     e.preventDefault();
 
@@ -29,10 +29,12 @@ function FrameCheckout() {
   }
 
   return (
-    <section className="frame-checkout w-screen h-screen absolute top-0 left-0 max-md:w-11/12 max-lg:w-3/4 z-50 flex justify-center items-center">
+    <section
+      className="frame-checkout w-screen h-screen max-md:h-dvh absolute top-0 left-0 z-50 flex justify-center items-center"
+      onClick={() => setIsEdit(null)}
+    >
       <form
-        // style={{ width: "95%", height: "95%" }}
-        className="w-1/2 h-fit p-4 flex flex-col gap-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-md"
+        className="w-1/2 h-fit max-md:w-11/12 maxl-lg:w-3/4 p-4 flex flex-col gap-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-md"
         dir="rtl"
         onSubmit={(e) => submitHandler(e)}
       >

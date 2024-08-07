@@ -40,10 +40,12 @@ function FrameEditForm({
   }, []);
 
   return (
-    <div className="edit-frame-form w-1/2 h-fit py-4 rounded-md max-md:w-11/12 max-lg:w-3/4 bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 flex justify-center items-center">
+    <div
+      className="edit-frame-form w-screen h-screen max-md:h-dvh absolute top-0 left-0 z-50 flex justify-center items-center"
+      onClick={() => setIsEdit(null)}
+    >
       <form
-        style={{ width: "95%", height: "95%" }}
-        className="flex flex-col gap-2"
+        className="w-1/2 h-fit max-md:w-11/12 maxl-lg:w-3/4 p-4 flex flex-col gap-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-md"
         dir="rtl"
         onSubmit={(e) => submitHandler(e)}
       >
@@ -77,7 +79,6 @@ function FrameEditForm({
           >
             <option value=""></option>
             <option value="و خلقناكم أزواجا">و خلقناكم أزواجا</option>
-            <option value="Hello World">Hello World</option>
           </select>
         </div>
         <div className="names flex flex-col">
