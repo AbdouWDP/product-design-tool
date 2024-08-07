@@ -29,10 +29,13 @@ function FrameCheckout({ setIsEdit }) {
   }
 
   return (
-    <section
-      className="frame-checkout w-screen h-screen max-md:h-dvh absolute top-0 left-0 z-50 flex justify-center items-center"
-      onClick={() => setIsEdit(null)}
-    >
+    <section className="frame-checkout w-screen h-screen max-md:h-dvh absolute top-0 left-0 z-50 flex justify-center items-center">
+      <button
+        className="close px-6 py-4 bg-blue-500 text-white absolute top-10 left-10"
+        onClick={() => setIsEdit(null)}
+      >
+        Close
+      </button>
       <form
         className="w-1/2 h-fit max-md:w-11/12 maxl-lg:w-3/4 p-4 flex flex-col gap-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-md"
         dir="rtl"
