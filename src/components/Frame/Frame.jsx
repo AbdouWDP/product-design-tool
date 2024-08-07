@@ -66,7 +66,14 @@ function Frame({
           draggable="false"
         />
         {quotes.length > 0 &&
-          quotes.map((quote) => <Quote text={quote} setQuotes={setQuotes} />)}
+          quotes.map((quote, index) => (
+            <Quote
+              text={quote}
+              key={index}
+              quotes={quotes}
+              setQuotes={setQuotes}
+            />
+          ))}
         {names.length > 0 && names.map((name) => <Names name={name} />)}
         {dates.length > 0 &&
           dates.map((date) => <Dates date={date} setDates={setDates} />)}
