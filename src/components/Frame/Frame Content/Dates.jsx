@@ -37,7 +37,7 @@ function Dates({ date, dates, setDates, index }) {
     <div
       ref={dateRef}
       key={index}
-      className="date absolute bottom-20 left-1/2 -translate-x-1/2 font-semibold touch-none select-none text-lg text-center whitespace-nowrap"
+      className="date px-4 absolute bottom-20 left-1/2 -translate-x-1/2 font-semibold touch-none select-none text-lg text-center whitespace-nowrap"
     >
       {isDelete && (
         <>

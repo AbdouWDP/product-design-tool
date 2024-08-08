@@ -37,7 +37,7 @@ function Icons({ icon, index, icons, setIcons }) {
     <div
       ref={iconRef}
       key={index}
-      className="absolute top-1/2 left-1/2 -translate-x-1/2"
+      className="absolute px-4 top-1/2 left-1/2 -translate-x-1/2"
     >
       {isDelete && (
         <>

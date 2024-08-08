@@ -37,7 +37,7 @@ function Quote({ text, index, quotes, setQuotes }) {
     <div
       ref={quoteRef}
       key={index}
-      className="quote absolute top-20 left-1/2 -translate-x-1/2 font-semibold touch-none select-none text-lg text-center whitespace-nowrap"
+      className="quote px-4 absolute top-20 left-1/2 -translate-x-1/2 font-semibold touch-none select-none text-lg text-center whitespace-nowrap"
     >
       {isDelete && (
         <>
