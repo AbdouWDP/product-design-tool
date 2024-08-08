@@ -32,12 +32,12 @@ function Icons({ icon, index, icons, setIcons }) {
       ],
     });
   }, []);
+
   return (
     <div
       ref={iconRef}
       key={index}
       className="absolute top-1/2 left-1/2 -translate-x-1/2"
-      onClick={() => setIsDelete(true)}
     >
       {isDelete && (
         <>
@@ -71,7 +71,12 @@ function Icons({ icon, index, icons, setIcons }) {
           </span>
         </>
       )}
-      <img src={icon} alt="" className="w-24 h-24 object-contain" />
+      <img
+        src={icon}
+        alt=""
+        className="w-24 h-24 object-contain"
+        onClick={() => setIsDelete(true)}
+      />
     </div>
   );
 }

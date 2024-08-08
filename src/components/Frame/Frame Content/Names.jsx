@@ -37,7 +37,6 @@ function Names({ name, index, names, setNames }) {
       ref={nameRef}
       key={index}
       className="name px-4 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 font-semibold touch-none select-none text-lg text-center whitespace-nowrap"
-      onClick={() => setIsDelete(true)}
     >
       {isDelete && (
         <>
@@ -63,7 +62,11 @@ function Names({ name, index, names, setNames }) {
           </button>
         </>
       )}
-      <p contentEditable suppressContentEditableWarning>
+      <p
+        contentEditable
+        suppressContentEditableWarning
+        onClick={() => setIsDelete(true)}
+      >
         {name}
       </p>
     </div>
