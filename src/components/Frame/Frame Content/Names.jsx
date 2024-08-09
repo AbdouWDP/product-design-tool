@@ -38,7 +38,7 @@ function Names({ name, index, names, setNames, isPortrait }) {
       key={index}
       style={{ left: `${index * 2 + 4}0%` }}
       className={`name px-4 absolute top-1/2 -translate-y-1/2 -translate-x-1/2 font-semibold touch-none select-none ${
-        isPortrait ? "text-2xl max-lg:text-lg" : "text-lg"
+        isPortrait ? "text-lg" : "text-2xl max-lg:text-lg"
       } text-center whitespace-nowrap`}
     >
       {isDelete && (
