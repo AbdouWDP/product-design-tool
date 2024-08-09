@@ -39,7 +39,7 @@ function Dates({ date, dates, setDates, index, isPortrait }) {
       key={index}
       style={{ bottom: `${index * 2 + 8}0px` }}
       className={`date px-4 absolute left-1/2 -translate-x-1/2 font-semibold touch-none select-none ${
-        isPortrait ? "text-lg" : "text-2xl max-lg:text-xl"
+        isPortrait ? "text-lg" : "text-2xl"
       } text-center whitespace-nowrap`}
     >
       {isDelete && (
