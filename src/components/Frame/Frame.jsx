@@ -74,6 +74,7 @@ function Frame({
               index={index}
               names={names}
               setNames={setNames}
+              isPortrait={isPortrait}
             />
           ))}
         {icons.length > 0 &&
@@ -93,6 +94,7 @@ function Frame({
               setDates={setDates}
               dates={dates}
               index={index}
+              isPortrait={isPortrait}
             />
           ))}
       </div>

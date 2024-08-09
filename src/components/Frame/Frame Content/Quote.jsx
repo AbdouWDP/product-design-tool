@@ -39,7 +39,7 @@ function Quote({ text, index, quotes, setQuotes, isPortrait }) {
       key={index}
       style={{ top: `${index * 2 + 8}0px` }}
       className={`quote px-4 absolute left-1/2 -translate-x-1/2 font-semibold touch-none select-none ${
-        isPortrait ? "text-lg" : "text-xl"
+        isPortrait ? "text-lg" : "text-4xl max-lg:text-xl"
       } text-center whitespace-nowrap`}
     >
       {isDelete && (

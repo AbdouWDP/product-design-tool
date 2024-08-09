@@ -1,7 +1,7 @@
 import interact from "interactjs";
 import { useEffect, useRef, useState } from "react";
 
-function Names({ name, index, names, setNames }) {
+function Names({ name, index, names, setNames, isPortrait }) {
   const nameRef = useRef(null);
   const position = { x: 0, y: 0 };
   const [isDelete, setIsDelete] = useState(false);
@@ -37,7 +37,9 @@ function Names({ name, index, names, setNames }) {
       ref={nameRef}
       key={index}
       style={{ left: `${index * 2 + 4}0%` }}
-      className="name px-4 absolute top-1/2 -translate-y-1/2 -translate-x-1/2 font-semibold touch-none select-none text-lg text-center whitespace-nowrap"
+      className={`name px-4 absolute top-1/2 -translate-y-1/2 -translate-x-1/2 font-semibold touch-none select-none ${
+        isPortrait ? "text-lg" : "text-2xl max-lg:text-xl"
+      } text-center whitespace-nowrap`}
     >
       {isDelete && (
         <>

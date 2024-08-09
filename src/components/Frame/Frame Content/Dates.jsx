@@ -1,7 +1,7 @@
 import interact from "interactjs";
 import { useEffect, useRef, useState } from "react";
 
-function Dates({ date, dates, setDates, index }) {
+function Dates({ date, dates, setDates, index, isPortrait }) {
   const dateRef = useRef(null);
   const position = { x: 0, y: 0 };
   const [isDelete, setIsDelete] = useState(false);
@@ -38,7 +38,9 @@ function Dates({ date, dates, setDates, index }) {
       ref={dateRef}
       key={index}
       style={{ bottom: `${index * 2 + 8}0px` }}
-      className="date px-4 absolute left-1/2 -translate-x-1/2 font-semibold touch-none select-none text-lg text-center whitespace-nowrap"
+      className={`date px-4 absolute left-1/2 -translate-x-1/2 font-semibold touch-none select-none ${
+        isPortrait ? "text-lg" : "text-2xl max-lg:text-xl"
+      } text-center whitespace-nowrap`}
     >
       {isDelete && (
         <>
