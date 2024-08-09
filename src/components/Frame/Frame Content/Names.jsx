@@ -36,7 +36,8 @@ function Names({ name, index, names, setNames }) {
     <div
       ref={nameRef}
       key={index}
-      className="name px-4 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 font-semibold touch-none select-none text-lg text-center whitespace-nowrap"
+      style={{ left: `${index * 2 + 4}0%` }}
+      className="name px-4 absolute top-1/2 -translate-y-1/2 -translate-x-1/2 font-semibold touch-none select-none text-lg text-center whitespace-nowrap"
     >
       {isDelete && (
         <>

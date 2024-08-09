@@ -1,7 +1,7 @@
 import interact from "interactjs";
 import { useEffect, useRef, useState } from "react";
 
-function Quote({ text, index, quotes, setQuotes }) {
+function Quote({ text, index, quotes, setQuotes, isPortrait }) {
   const quoteRef = useRef(null);
   const position = { x: 0, y: 0 };
   const [isDelete, setIsDelete] = useState(false);
@@ -37,7 +37,10 @@ function Quote({ text, index, quotes, setQuotes }) {
     <div
       ref={quoteRef}
       key={index}
-      className="quote px-4 absolute top-20 left-1/2 -translate-x-1/2 font-semibold touch-none select-none text-lg text-center whitespace-nowrap"
+      style={{ top: `${index * 2 + 8}0px` }}
+      className={`quote px-4 absolute left-1/2 -translate-x-1/2 font-semibold touch-none select-none ${
+        isPortrait ? "text-lg" : "text-xl"
+      } text-center whitespace-nowrap`}
     >
       {isDelete && (
         <>
@@ -61,7 +64,7 @@ function Quote({ text, index, quotes, setQuotes }) {
               setIsDelete(false);
             }}
           >
-            <i class="fa-solid fa-clone"></i>
+            <i className="fa-solid fa-clone"></i>
           </button>
           <button
             className="approve-content w-8 h-8 bg-green-400 text-white flex justify-center items-center absolute -top-8 right-0 rounded-full duration-150 ease-in cursor-pointer"

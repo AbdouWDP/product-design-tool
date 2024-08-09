@@ -1,7 +1,7 @@
 import interact from "interactjs";
 import { useEffect, useRef, useState } from "react";
 
-function Icons({ icon, index, icons, setIcons }) {
+function Icons({ icon, index, icons, setIcons, isPortrait }) {
   const iconRef = useRef(null);
   const position = { x: 0, y: 0 };
   const [isDelete, setIsDelete] = useState(false);
@@ -37,7 +37,8 @@ function Icons({ icon, index, icons, setIcons }) {
     <div
       ref={iconRef}
       key={index}
-      className="absolute px-4 top-1/2 left-1/2 -translate-x-1/2"
+      style={{ top: `${5 + index}0%` }}
+      className="absolute px-4 left-1/2 -translate-x-1/2"
     >
       {isDelete && (
         <>
@@ -74,7 +75,7 @@ function Icons({ icon, index, icons, setIcons }) {
       <img
         src={icon}
         alt=""
-        className="w-24 h-24 object-contain"
+        className={`${isPortrait ? "w-24 h-24" : "w-16 h-16+"} object-contain`}
         onClick={() => setIsDelete(true)}
       />
     </div>

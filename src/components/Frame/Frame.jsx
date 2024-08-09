@@ -64,6 +64,7 @@ function Frame({
               index={index}
               quotes={quotes}
               setQuotes={setQuotes}
+              isPortrait={isPortrait}
             />
           ))}
         {names.length > 0 &&
@@ -75,15 +76,6 @@ function Frame({
               setNames={setNames}
             />
           ))}
-        {dates.length > 0 &&
-          dates.map((date, index) => (
-            <Dates
-              date={date}
-              setDates={setDates}
-              dates={dates}
-              index={index}
-            />
-          ))}
         {icons.length > 0 &&
           icons.map((icon, index) => (
             <Icons
@@ -91,6 +83,16 @@ function Frame({
               index={index}
               icons={icons}
               setIcons={setIcons}
+              isPortrait={isPortrait}
+            />
+          ))}
+        {dates.length > 0 &&
+          dates.map((date, index) => (
+            <Dates
+              date={date}
+              setDates={setDates}
+              dates={dates}
+              index={index}
             />
           ))}
       </div>
